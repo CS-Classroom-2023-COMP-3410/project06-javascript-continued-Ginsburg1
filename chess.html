@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vanilla JS Chess with Help</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Vanilla JS Chess</h1>
+
+  <div id="chess-container">
+    
+    <!-- Left column: Black clock on top, Board, White clock on bottom -->
+    <div id="board-and-clocks">
+      <!-- Black clock (top) -->
+      <div id="blackClockDisplay" class="clock-group top-clock">
+        <strong>Black:</strong> 
+        <span id="blackClock">05:00</span>
+      </div>
+
+      <!-- The chessboard -->
+      <div id="chessboard"></div>
+
+      <!-- White clock (bottom) -->
+      <div id="whiteClockDisplay" class="clock-group bottom-clock">
+        <strong>White:</strong>
+        <span id="whiteClock">05:00</span>
+      </div>
+    </div>
+
+    <!-- Right column: controls, move list, etc. -->
+    <div id="info-panel">
+
+      <!-- Time config & start -->
+      <div id="time-panel">
+        <label for="timeInput"><strong>Time per side (minutes):</strong></label>
+        <input type="number" id="timeInput" value="5" min="1">
+        <button id="setTimeBtn">Start Game</button>
+      </div>
+
+      <hr>
+
+      <!-- Moves table -->
+      <div id="moveTableContainer">
+        <table id="moveTable">
+          <thead>
+            <tr>
+              <th>Move</th>
+              <th>White</th>
+              <th>Black</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filled by script.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <!-- Status area -->
+      <p><strong>Turn:</strong> <span id="turnDisplay">White</span></p>
+      <p id="status"></p>
+
+      <hr>
+
+      <!-- Theme toggle, help, reset -->
+      <div id="control-panel">
+        <button id="toggleThemeBtn">Toggle Theme</button>
+        <button id="helpBtn">Help</button>
+        <button id="resetBtn">Reset Game</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

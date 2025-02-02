@@ -1,0 +1,197 @@
+/* styles.css */
+
+/* Overall page */
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #eee;
+  color: #333;
+  transition: background 0.4s, color 0.4s;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Container for (board+clocks) on the left, info panel on the right */
+#chess-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Board and two clocks stacked vertically */
+#board-and-clocks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#blackClockDisplay,
+#whiteClockDisplay {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.top-clock {
+  margin-top: 10px;
+}
+.bottom-clock {
+  margin-bottom: 10px;
+}
+
+/* Chessboard is a large responsive square */
+#chessboard {
+  width: 70vmin;
+  height: 70vmin;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 2px solid #444;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+/* Each square */
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5.5vmin; 
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Light/dark squares */
+.light {
+  background-color: #f0d9b5;
+}
+.dark {
+  background-color: #b58863;
+}
+
+/* Highlight (yellow) for selected or legal moves */
+.selected {
+  outline: 3px solid yellow;
+  box-sizing: border-box;
+}
+.highlight {
+  background-color: rgba(255, 255, 0, 0.5) !important;
+}
+
+/* 
+  Our new "Help" highlight (in green).
+  We'll add a 'help-move' class to highlight
+  the squares for the suggested best move.
+*/
+.help-move {
+  outline: 3px solid limegreen !important;
+}
+
+/* Info panel on the right */
+#info-panel {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  min-width: 240px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+#time-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+#timeInput {
+  width: 80px;
+  padding: 4px;
+}
+#setTimeBtn {
+  padding: 6px 12px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#setTimeBtn:hover {
+  background: #0056b3;
+}
+
+/* Moves table area */
+#moveTableContainer {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+#moveTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+#moveTable th, #moveTable td {
+  border: 1px solid #aaa;
+  padding: 4px 6px;
+  text-align: center;
+}
+#moveTable th {
+  background: #f5f5f5;
+}
+
+/* Turn & status text */
+#status {
+  color: #C00;
+  font-weight: bold;
+  min-height: 1.2em;
+}
+
+/* Buttons area */
+#control-panel {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+#toggleThemeBtn, #helpBtn, #resetBtn {
+  padding: 6px 12px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#toggleThemeBtn:hover, #helpBtn:hover, #resetBtn:hover {
+  background: #0056b3;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #1a1a1a;
+  color: #ddd;
+}
+body.dark-mode #info-panel {
+  background: #2b2b2b;
+  border-color: #555;
+  color: #ddd;
+}
+body.dark-mode .light {
+  background-color: #999;
+}
+body.dark-mode .dark {
+  background-color: #555;
+}
+body.dark-mode #moveTable th {
+  background: #444;
+}
+body.dark-mode #moveTable td, 
+body.dark-mode #moveTable th {
+  border-color: #666;
+}
